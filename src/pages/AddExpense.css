@@ -1,0 +1,52 @@
+.add-expense-container{
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 32px;
+     background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+}
+.add-expense-container h1 {
+ font-size: 22px;
+ font-weight: 500;
+ margin-bottom: 24px;
+ color: #1a1a1a;
+}
+.form-group{
+    display: flex;
+      flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.form-group label{
+    font-size: 13px;
+    font-weight: 500;
+    color:#555;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  outline: none;
+  transition: border 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #534AB7;
+}
+.add-expense-container button{
+    width: 100%;
+    padding: 12px;
+    background: #534AB7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+}
