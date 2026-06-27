@@ -7,9 +7,11 @@ import Transactions from "./pages/Transactions";
 import Reports from "./pages/Reports";
 import Navbar from "./components/Navbar";
 function App() {
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+
   return (
     <ExpenseProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Dashboard />} />
