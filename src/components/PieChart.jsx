@@ -47,19 +47,15 @@ function ExpensePieChart() {
   return (
     <div className="chart-box">
       <h3>Spending by Category</h3>
-      <ResponsiveContainer width="100%" height={300}>
-        <PieChart>
+      <ResponsiveContainer width="100%" height={320}>
+        <PieChart margin={{ top: 20, right: 60, bottom: 20, left: 60 }}>
           <Pie
             data={categoryData}
             dataKey="value"
             nameKey="name"
-            cx="60%"
+            cx="50%"
             cy="50%"
-            outerRadius={70}
-            label={({ name, percent }) =>
-              `${name} ${(percent * 100).toFixed(0)}%`
-            }
-            labelLine={true}
+            outerRadius={90}
           >
             {categoryData.map((entry, index) => (
               <Cell
@@ -68,6 +64,8 @@ function ExpensePieChart() {
               />
             ))}
           </Pie>
+          <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
+          <Legend />
           <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
           <Legend />
         </PieChart>
