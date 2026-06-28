@@ -35,10 +35,28 @@ function Budget() {
     setLimitInput("");
   }
 
-  // Calculate how much was spent per category this month
+  function handleDeleteBudget(category) {
+    dispatch({
+      type: "DELETE_BUDGET",
+      payload: category,
+    });
+  }
+
   function getSpentForCategory(category) {
+    const now = new Date();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
+
     return state.transactions
-      .filter((t) => t.type === "expense" && t.category === category)
+      .filter((t) => {
+        const transactionDate = new Date(t.date);
+        return (
+          t.type === "expense" &&
+          t.category === category &&
+          transactionDate.getMonth() === currentMonth &&
+          transactionDate.getFullYear() === currentYear
+        );
+      })
       .reduce((sum, t) => sum + t.amount, 0);
   }
 
@@ -81,9 +99,17 @@ function Budget() {
               <div key={category} className="budget-item">
                 <div className="budget-item-header">
                   <span className="budget-category">{category}</span>
-                  <span className={isOver ? "budget-over" : "budget-amounts"}>
-                    ₹{spent.toFixed(2)} / ₹{limit.toFixed(2)}
-                  </span>
+                  <div className="budget-header-right">
+                    <span className={isOver ? "budget-over" : "budget-amounts"}>
+                      ₹{spent.toFixed(2)} / ₹{limit.toFixed(2)}
+                    </span>
+                    <button
+                      className="delete-budget-btn"
+                      onClick={() => handleDeleteBudget(category)}
+                    >
+                      ✕
+                    </button>
+                  </div>
                 </div>
                 <div className="progress-track">
                   <div

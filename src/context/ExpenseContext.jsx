@@ -31,6 +31,14 @@ function expenseReducer(state, action) {
         },
       };
 
+    case "DELETE_BUDGET":
+      const updatedBudgets = { ...state.budgets };
+      delete updatedBudgets[action.payload];
+      return {
+        ...state,
+        budgets: updatedBudgets,
+      };
+
     default:
       return state;
   }
