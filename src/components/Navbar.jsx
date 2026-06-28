@@ -9,7 +9,7 @@ function Navbar() {
           Dashboard
         </NavLink>
         <NavLink to="/transactions">Transactions</NavLink>
-        <NavLink to="/add">Add Expense</NavLink>
+        <NavLink to="/add">Add Transaction</NavLink>
         <NavLink to="/budget">Budget</NavLink>
         <NavLink to="/reports">Reports</NavLink>
       </div>
