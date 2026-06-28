@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <ExpenseProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/expense-tracker-app">
         <Navbar />
         <Routes>
           <Route path="/" element={<Dashboard />} />
